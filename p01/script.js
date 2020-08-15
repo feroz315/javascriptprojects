@@ -26,34 +26,28 @@ function ShowSuccess(input){
     return remail.test(String(email).toLowerCase());
 
     }
-// this is add event listerns
 
+// function for All
+    function checkrequired(inputArray){
+    inputArray.forEach(function(input) {
+        if (input.value === ''){
+            ShowError(input,`${input.id} is required `);
+        }else
+        {
+              ShowSuccess(input);  
+        }
+        
+    });    
+
+    }
+//function for filed
+    function getFieldid(input){
+        return input.id.charAt(0).toUpperCase() + input.id.slice();
+    } 
+
+// this is add event listerns
 form.addEventListener('submit',function (e)  {
 e.preventDefault();
 
-if( username.value === '' ){
-    ShowError(username,'username is required');
-}else{
-    ShowSuccess(username);
+    checkrequired([username,Email,Password,Password2]);
 }
-
-if( Email.value === '' ){
-    ShowError(Email,'Email is required');
-}else if(!Emailvaldiate(Email.value)){
-    ShowError(Email,'Email is invaild');
-}else{
-    ShowSuccess(Email);
-}
-if( Password.value === '' ){
-    ShowError(Password,'Password is required');
-}else{
-    ShowSuccess(Password);
-}
-
-if( Password2.value === '' ){
-    ShowError(Password2,' Confirm Password is required');
-}else{
-    ShowSuccess(Password2);
-}
-
-})
