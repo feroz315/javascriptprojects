@@ -65,7 +65,7 @@ const Password2 = document.getElementById('Password2');
     }
 //function for filed
     function getFieldid(input){
-        return input.id.charAt(0).input.id.slice();
+        return input.id.charAt(0).toUpperCase() + input.id.slice();
     } 
 
 // this is add event listerns
