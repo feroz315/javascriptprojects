@@ -56,9 +56,9 @@ const Password2 = document.getElementById('Password2');
     // function for the length
     function checkLength(input,min,max){
         if(input.value.length < min){
-            ShowError(input,`${getFieldid(input)} needs to be ${min} Chartacters`)
+            ShowError(input,`${getFieldid(input)} needs to be ${min} chaters`)
         }else if (input.value.length > max){
-            ShowError(input,`${getFieldid(input)} max is ${max} Chartacters`)
+            ShowError(input,`${getFieldid(input)} max is ${max} Charters`)
         }else{
             ShowSuccess(input)
         }
@@ -73,7 +73,7 @@ const Password2 = document.getElementById('Password2');
     e.preventDefault();
 
     checkrequired([username,Email,Password,Password2]);
-    checkLength(username,6,10);
+    checkLength(username,3,10);
     checkLength(Password,6,30);
     checkEmail(Email);
     checkPassword(Password,Password2);
