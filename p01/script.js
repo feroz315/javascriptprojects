@@ -21,9 +21,14 @@ const Password2 = document.getElementById('Password2');
   
 }
 // function for email
-    function Emailvaldiate(Email){
+    function checkEmail(input){
     const remail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return remail.test(String(email).toLowerCase());
+    if ( remail.test(input.value.trim() ) ){
+        ShowSuccess(input);
+
+    }else{
+        ShowError(input,`${getFieldid(input)} is not valid email`)
+    }
 
     }
 
@@ -40,7 +45,15 @@ const Password2 = document.getElementById('Password2');
     });    
 
     }
-// function for the length
+//  function for the password
+    function checkPassword(input1,input2){
+        
+            if (input1.value !== input2.value){
+                ShowError(input2,'does not match password');
+        }       
+                
+        }
+    // function for the length
     function checkLength(input,min,max){
         if(input.value.length < min){
             ShowError(input,`${getFieldid(input)} needs to be ${min} Chartacters`)
@@ -62,5 +75,7 @@ const Password2 = document.getElementById('Password2');
     checkrequired([username,Email,Password,Password2]);
     checkLength(username,6,10);
     checkLength(Password,6,30);
+    checkEmail(Email);
+    checkPassword(Password,Password2);
 
  })
