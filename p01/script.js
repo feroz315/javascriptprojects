@@ -27,7 +27,7 @@ const Password2 = document.getElementById('Password2');
         ShowSuccess(input);
 
     }else{
-        ShowError(input,`${getFieldid(input)} is not valid email`)
+        ShowError(input,`${getFieldid(input)} is not valid`)
     }
 
     }
@@ -49,7 +49,7 @@ const Password2 = document.getElementById('Password2');
     function checkPassword(input1,input2){
         
             if (input1.value !== input2.value){
-                ShowError(input2,'does not match password');
+                ShowError(input2,"Password Does n't match");
         }       
                 
         }
@@ -65,7 +65,7 @@ const Password2 = document.getElementById('Password2');
     }
 //function for filed
     function getFieldid(input){
-        return input.id.charAt(0).toUpperCase() + input.id.slice();
+        return input.id.charAt(0).input.id.slice();
     } 
 
 // this is add event listerns
