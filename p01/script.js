@@ -6,7 +6,7 @@ const Password2 = document.getElementById('Password2');
 
 
 // fucntion for showerror
-function ShowError(input,message){
+    function ShowError(input,message){
 
     const formControl = input.parentElement;
     formControl.className = 'form-control error';
@@ -14,7 +14,7 @@ function ShowError(input,message){
     small.innerText = message;
 }
 // function for showsuccess
-function ShowSuccess(input){
+    function ShowSuccess(input){
 
     const formControl = input.parentElement;
     formControl.className = 'form-control success';
@@ -31,7 +31,7 @@ function ShowSuccess(input){
     function checkrequired(inputArray){
     inputArray.forEach(function(input) {
         if (input.value === ''){
-            ShowError(input,`${input.id} is required `);
+            ShowError(input,`${getFieldid(input)} is required `);
         }else
         {
               ShowSuccess(input);  
@@ -40,14 +40,27 @@ function ShowSuccess(input){
     });    
 
     }
+// function for the length
+    function checkLength(input,min,max){
+        if(input.value.length < min){
+            ShowError(input,`${getFieldid(input)} needs to be ${min} Chartacters`)
+        }else if (input.value.length > max){
+            ShowError(input,`${getFieldid(input)} max is ${max} Chartacters`)
+        }else{
+            ShowSuccess(input)
+        }
+    }
 //function for filed
     function getFieldid(input){
         return input.id.charAt(0).toUpperCase() + input.id.slice();
     } 
 
 // this is add event listerns
-form.addEventListener('submit',function (e)  {
-e.preventDefault();
+    form.addEventListener('submit',function (e)  {
+    e.preventDefault();
 
     checkrequired([username,Email,Password,Password2]);
-}
+    checkLength(username,6,10);
+    checkLength(Password,6,30);
+
+ })
