@@ -39,7 +39,7 @@ body{
 .row{
     display: flex;
 }
-.seat.Selected{
+.seat.selected{
 background-color: dodgerblue;
 
 }
