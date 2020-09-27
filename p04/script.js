@@ -13,7 +13,7 @@ function calculate() {
     const currone = currencyone.value;
     const currtwo = currencytwo.value;
      
-    fetch(`https://v6.exchangerate-api.com/v6/e5fb6e78d4418611a6b4f55b/latest/${currencyone}`)
+    fetch(`https://v6.exchangerate-api.com/v6/e5fb6e78d4418611a6b4f55b/latest${currencyone}`)
         .then( res => res.json() )
         .then( data => {
             const exchangeRate = data.conversion_rates[currtwo]

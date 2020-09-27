@@ -5,7 +5,7 @@ const Password = document.getElementById('Password');
 const Password2 = document.getElementById('Password2');
 
 
-// fucntion for showerror
+// fucntion for showerroz
     function ShowError(input,message){
 
     const formControl = input.parentElement;
