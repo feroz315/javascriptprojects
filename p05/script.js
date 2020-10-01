@@ -16,7 +16,7 @@ generateRandomUser();
 
 //Function to fetch random user from Api
 //Api: randomuser.me/api
-async function generateRandomUser () {
+async function generateRandomUser() {
     const res = await fetch('https://randomuser.me/api');
     const data = await res.json();
     
@@ -36,6 +36,7 @@ function doubleworth(){
    updateDOM();
 
 }
+
 //functon sort
 function sortrichest(){
     data.sort((a, b) => b.worth - a.worth);
@@ -49,6 +50,7 @@ function showMillionaires(){
     );
     updateDOM();
 }
+
 //function calculate total worth
 function totalcalculate(){
     const totalworth = data.reduce(
