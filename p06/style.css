@@ -14,7 +14,12 @@
 body{
     font-family: 'Open Sans', sans-serif;
     margin: 0;
+    transition: transform 0.5s ease;
 }
+body.show-nav{
+    transform: translateX(200px);
+}
+
 nav{
     background-color: var(--primary-color);
     color: white;
@@ -34,6 +39,7 @@ nav .log img{
     border-radius: 50%;
     width: 75px;
     height: 75px;
+    
 }
 nav ul{
     padding: 0;
@@ -104,6 +110,12 @@ button:focus{
     bottom: 0;
     display: none;
 }
+
+.model-container.show-model{
+    display: block;
+
+}
+
 .model{
     background-color: white;
     border-radius: 5px;
@@ -114,6 +126,8 @@ button:focus{
     transform: translate(-50%,-50%);
     max-width: 100%;
     width: 400px;
+    animation-name: modelopen;
+    animation-duration: var(--model-duration);
 }
 .model-header{
     background-color: var(--primary-color);
@@ -147,7 +161,14 @@ button:focus{
     color: white;
 }
 
-
+@keyframes modelopen{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
 
 
