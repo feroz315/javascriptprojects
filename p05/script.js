@@ -13,13 +13,11 @@ let data =[];
 generateRandomUser();
 generateRandomUser();
 generateRandomUser();
-
 //Function to fetch random user from Api
 //Api: randomuser.me/api
 async function generateRandomUser() {
-    const res = await fetch('https://randomuser.me/api');
-    const data = await res.json();
-    
+    const res = await fetch("https://randomuser.me/api");
+    const data = await res.json(); 
     const user = data.results[0];
     const newUser ={
         name: `${user.name.first} ${user.name.last}`,
@@ -61,6 +59,7 @@ function totalcalculate(){
         totalNetWorthElement.innerHTML = `<h3>Total Net Worth: <strong>${formatCurrency(totalworth)}</strong></h3>`;
         main.appendChild(totalNetWorthElement); 
 }
+
 //Add Newly Generated
 function AddData(newUser){
     data.push(newUser);
@@ -79,11 +78,13 @@ function updateDOM(inputData = data){
     });    
   
 }
+
 //Function to format a number as a currency
 function formatCurrency(num){
     return 'PKR' + (num).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');  
 
 }
+
 //Add User eventlistener
 adduserbtn.addEventListener('click', generateRandomUser);
 //Double Money event listener
