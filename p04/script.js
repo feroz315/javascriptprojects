@@ -1,5 +1,5 @@
-const currencyone = document.getElementById('currency-one');
-const currencytwo = document.getElementById('currency-two');
+const currOnePicker = document.getElementById('currency-one');
+const currTwoPicker = document.getElementById('currency-two');
 const amountone = document.getElementById('amount-one');
 const amounttwo = document.getElementById('amount-two');
 const flipbutton = document.getElementById('flip');
@@ -10,34 +10,35 @@ const rate = document.getElementById('rate');
 
 function calculate() {
    
-    const currone = currencyone.value;
-    const currtwo = currencytwo.value;
+    const currone = currOnePicker.value;
+    const currtwo = currTwoPicker.value;
      
-    fetch(`https://v6.exchangerate-api.com/v6/e5fb6e78d4418611a6b4f55b/latest${currencyone}`)
+    fetch(`https://v6.exchangerate-api.com/v6/e5fb6e78d4418611a6b4f55b/latest/${currone}`)
         .then( res => res.json() )
         .then( data => {
-            const exchangeRate = data.conversion_rates[currtwo]
-            console.log(exchangeRate);
-//Display conversion rate
-            rate.innerHTML = `1 ${currone} = ${exchangeRate} ${currtwo}`;
+            
+              const exchangeRate = data.conversion_rates[currtwo];
+            //Display conversion rate
+           rate.innerHTML = `1 ${currone} = ${exchangeRate} ${currtwo}`;
     });
         
 //Apply conversion rate two
-            currtwo.value = (currone.value * exchangeRate).toFixed(2);
+           amounttwo.value = (amountone.value * exchangeRate).tofixed(2);
 }
 
 //flip button click
 function flip()  {
-    const temp = currencyone.value;
-    currencyone.value = currencytwo.value;
-    currencytwo.value = temp;
+    
+    const temp = currOnePicker.value;
+    currOnePicker.value = currTwoPicker.value;
+    currTwoPicker.value = temp;
     calculate();
 
 }
 //addeventlistener
 
-currencyone.addEventListener('change',calculate);
-currencytwo.addEventListener('change',calculate);
+currOnePicker.addEventListener('change',calculate);
+currTwoPicker.addEventListener('change',calculate);
 amountone.addEventListener('input',calculate);
 amounttwo.addEventListener('input',calculate);
 flipbutton.addEventListener('click',flip);
