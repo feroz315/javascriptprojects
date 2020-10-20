@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    margin: 0;
 }
 body{
     background-color: #2d2013;
@@ -18,6 +19,16 @@ body{
 }
 .flex{
     display: flex;
+}
+
+h1{
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 input, button{
@@ -87,11 +98,16 @@ input[type='text'] {
     margin: 30px auto;
     width: 70%;
 }
+.selected-meal h1{
+    animation: zoom 1.7s ease-in-out infinite alternate;
+    padding: 2vmax 0;
+}
+
 .selected-meal img{
-    width: 300px;
-    margin: 15px;
+    width: 300px;  
     border: 4px solid white;
     border-radius: 2px;
+    animation: zoom 1.7s ease-in-out infinite alternate;
 }
 .selected-meal-info{
     margin: 20px;
